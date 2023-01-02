@@ -1,0 +1,40 @@
+﻿@model ProductVM
+@{
+    
+    ViewData["Title"] = "AddEdit";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden"  asp-for="Id" />
+    <input type="hidden" asp-for="ImageFileName" />
+ <div class="mb-3">
+  <label asp-for="Name" class="form-label"></label>
+  <input class="form-control" asp-for="Name">
+</div>
+ <div class="mb-3">
+  <label asp-for="Price" class="form-label"></label>
+  <input class="form-control" asp-for="Price">
+</div>
+ <div class="mb-3">
+  <label asp-for="Discount" class="form-label"></label>
+  <input class="form-control" asp-for="Discount">
+</div>
+ <div class="mb-3">
+  <label asp-for="Description" class="form-label"></label>
+  <input class="form-control" asp-for="Description">
+</div>
+ <div class="mb-3">
+  <label asp-for="VendorId" class="form-label"></label>
+  <select asp-for="VendorId" asp-items="ViewBag.vendors" class="form-control">
+      <option>Please select a vendor</option>
+  </select>
+</div>
+<div class="mb-3">
+    <label>Image</label>
+    <input type="file" name="ImageFileName" />
+</div>
+<div class="mb-3">
+    <button type="submit" class="btn btn-success">@(Model.Id==0?"Add":"Update")</button>
+</div>
+</form>
+

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<VendorListVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-striped mt-3">
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.CountryName</td>
+        </tr>
+    }
+</table>
+

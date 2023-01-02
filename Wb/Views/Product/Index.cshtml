@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProductVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-striped mt-3">
+    @foreach(var item in Model)
+    {
+        <tr>
+ <td>
+            <img src="/images/products/@item.ImageFileName" style="width:100px;"/>
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Price
+        </td>
+        <td>
+            <a asp-action="AddEdit" asp-route-id="@item.Id">Edit</a>
+        </td>
+        <td>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="delete">Delete</a>
+        </td>
+        </tr>
+       
+    }
+</table>
+@section Scripts{
+<script>
+    $(".delete").on("click",function(){
+        if(!confirm("Are you sure?"))
+        {
+            return false;
+        }
+    });
+</script>
+}
